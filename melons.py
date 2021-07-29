@@ -61,7 +61,7 @@ def read_melon_types_from_file(filepath):
             # For seedless, we want to turn "1" => True, otherwise False
             seedless = (seedless == "1")
     
-            melon_types = Melon(melon_id,
+            melon_types[melon_id] = Melon(melon_id,
                                           melon_type,
                                           common_name,
                                           price,
@@ -70,6 +70,8 @@ def read_melon_types_from_file(filepath):
                                           seedless)
 
     return melon_types
+    print(type(melon_types))
+    print(melon_types)
 
 
 def get_all():
@@ -83,6 +85,7 @@ def get_all():
     """
 
     # This relies on access to the global dictionary `melon_types`
+    
 
     return list(melon_types.values())
 
@@ -92,7 +95,7 @@ def get_by_id(melon_id):
 
     # This relies on access to the global dictionary `melon_types`
 
-    melon_id = melon_types.keys()
+    melon_id = melon_types[melon_id]
 
     return melon_id
 
